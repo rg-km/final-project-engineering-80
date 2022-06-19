@@ -36,12 +36,18 @@ func (r *repository) Save(user User) (User, error) {
 
 	// Task 2: buatlah query dengan prepared statement dengan statement SQL yang sudah di lengkapi	diatas
 	// row := r.db.QueryRow(sqlStatement, user)
-	_, err := r.db.Exec(sqlStatement, user.Name, user.Email, user.PhoneNumber, user.Occupation, user.PasswordHash, user.Role, user.ProfilePic, user.Token, user.CreatedAt, user.UpdatedAt)
+	response, err := r.db.Exec(sqlStatement, user.Name, user.Email, user.PhoneNumber, user.Occupation, user.PasswordHash, user.Role, user.ProfilePic, user.Token, user.CreatedAt, user.UpdatedAt)
 	if err != nil {
 		return user, err
 	}
 
+	id, err := response.LastInsertId()
+	user.ID = int(id)
 	return user, nil
+
+	// id : 0
+	// name: ruben
+	// email: ruben@gmail.com
 }
 
 func (r *repository) FindByEmail(email string) (User, error) {
