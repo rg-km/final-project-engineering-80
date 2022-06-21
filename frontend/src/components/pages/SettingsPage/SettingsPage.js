@@ -56,7 +56,7 @@ function Account() {
         <div className="account-comp">
             <h3>Akun</h3>
             <h1>Pilih bagaimana kamu terlihat dan apa yang kamu lihat</h1>
-            <h4>Masuk sebagai x@student.ub.ac.id</h4>
+            <h4> </h4>
         </div>
     )
 }
