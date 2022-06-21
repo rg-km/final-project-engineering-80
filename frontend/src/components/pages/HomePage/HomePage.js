@@ -1,6 +1,6 @@
 import React from 'react';
 import './HomePage.css';
-import Button from '../../atoms/Button/Button';
+// import Button from '../../atoms/Button/Button';
 import Product from '../../molecules/Product/Product';
 
 const HomePage = () => {
@@ -8,9 +8,9 @@ const HomePage = () => {
     return (
         <div className="home-page">
             <div className="banner-main">
-                <h1>Grand Opening!!!</h1>
+                {/* <h1>Grand Opening!!!</h1>
                 <p>Ikutii event dan dapatkan hadiah hingga 2000 Iphone 12 secara gratis</p>
-                <Button variant="default">Gabung Sekarang</Button>
+                <Button variant="default">Gabung Sekarang</Button> */}
             </div>
             <h4 className="title-thumb">Rekomendasi</h4>
             <div className="container-product">

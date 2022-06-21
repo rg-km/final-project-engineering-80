@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Input, { Label } from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import { Link, withRouter } from 'react-router-dom';
-import Logo from '../../../assets/img/main_logo.svg';
+import Logo from '../../../assets/img/logoGB.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './LoginPage.css';
 
@@ -23,8 +23,8 @@ const LoginPage = (props) => {
 
     return (
         <div id="login-page">
-            <img src={Logo} alt="Buku Kita" width="35" />
-            <h1>Login to Buku Kita</h1>
+            <img src={Logo} alt="Buku Kita" width="70" />
+            <h1>Login to GedeBOOK</h1>
             <form className="form-group">
                 <Label id="username" title="Nama pengguna" >
                     <Input onChange={handleInputChange} variant="line" />

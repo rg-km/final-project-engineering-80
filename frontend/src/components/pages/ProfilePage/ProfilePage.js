@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ProfilePage.css';
 import Button from '../../atoms/Button/Button';
 import Product from '../../molecules/Product/Product';
-import Avatar from '../../../assets/img/avatar.svg';
+// import Avatar from '../../../assets/img/avatar.svg';
 import { IoMdHome, IoMdPeople, IoIosLink } from 'react-icons/io';
 import { useMatchMedia } from '../../utils/utils';
 import { Route } from 'react-router';
@@ -16,16 +16,16 @@ const ProfilePage = (props) => {
     return (
         <div className="profile-page">
             <div className="profile">
-                <img className="profile-photo" src={Avatar} alt="profile" />
+                {/* <img className="profile-photo" src={Avatar} alt="profile" /> */}
                 <div className="description">
                     <h1>{props.username}</h1>
-                    <h3>node_subejo</h3>
+                    {/* <h3>node_subejo</h3> */}
                     {width > 768 ? <Button variant="default">Edit profile</Button> : ''}
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quas?</span>
+                    <span>Tidak tercantum bio apapun</span>
                     <div className="card-detail">
-                        <span><IoMdPeople />BCC Filkom</span>
-                        <span><IoMdHome />Mojokerto</span>
-                        <span><IoIosLink />github.com/bagus2x/buku-kita</span>
+                        <span><IoMdPeople />ilhamrasyid489</span>
+                        <span><IoMdHome />Bekasi</span>
+                        <span><IoIosLink />ilham489.blogspot.com</span>
                     </div>
                 </div>
             </div>

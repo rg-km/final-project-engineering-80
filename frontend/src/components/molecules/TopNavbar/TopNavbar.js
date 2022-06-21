@@ -9,8 +9,8 @@ import {
     IoIosCart,
     IoIosNotifications,
 } from 'react-icons/all';
-import Logo from '../../../assets/img/main_logo.svg';
-import Avatar from '../../../assets/img/avatar.svg';
+import Logo from '../../../assets/img/logoGB.png';
+// import Avatar from '../../../assets/img/avatar.svg';
 import List, { Item } from '../../atoms/List2/List';
 import Menu, { Content } from '../../atoms/Menu/Menu';
 import { useMatchMedia } from '../../utils/utils';
@@ -42,9 +42,9 @@ const TopNavbar = (props) => {
         <div id="top-navbar">
             <TopNav>
                 <div className="left-wrapper">
-                    <img className="logo" src={Logo} alt="Buku Kita" width="40" />
+                    <img className="logo" src={Logo} alt="GedeBOOK" width="60" />
                     <span className="brand" style={{ marginLeft: '10px', fontWeight: 'bolder', fontSize: '18px' }}>
-                        <span style={{ fontSize: '18px' }}>Buku</span> Kita
+                        <span style={{ fontSize: '18px' }}>Gede</span> BOOK
                     </span>
                     {width <= 768 ? <SearchBox type="mobile" id="box-1" /> : ''}
                 </div>
@@ -87,7 +87,7 @@ const TopNavbar = (props) => {
                             <List>
                                 <Item to="/home/profile" variant="div rectangle">
                                     <span className="avatar">
-                                        <img src={Avatar} width="30px" alt="Profile" />
+                                        {/* <img src={Avatar} width="30px" alt="Profile" /> */}
                                     </span>
                                     <span>
                                         <h4 style={{ marginBottom: '4px' }}>{props.username}</h4>
@@ -112,7 +112,7 @@ const TopNavbar = (props) => {
                     </Menu>
                     <Item to="/home/profile" variant="button rectangle" className="avatar-wrapper">
                         <span className="avatar">
-                            <img src={Avatar} width="24px" alt="Profile" />
+                            {/* <img src={Avatar} width="24px" alt="Profile" /> */}
                         </span>
                         {props.username}
                     </Item>
