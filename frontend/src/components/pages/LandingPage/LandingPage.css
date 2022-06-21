@@ -1,0 +1,165 @@
+#landing-page {
+    width: 100vw;
+    height: auto;
+    display: grid;
+    grid-template-columns:repeat(12, 1fr);
+    grid-template-rows: 80px auto;
+    grid-template-areas:
+                        "hd hd hd hd hd hd hd hd hd hd hd hd"
+                        "gr gr gr gr gr gr wp wp wp wp wp wp";
+    align-content: stretch;
+    box-sizing: border-box;
+    align-items: center;
+}
+#landing-page > #top-nav {
+    grid-area: hd;
+    height: 80px;
+}
+#landing-page .left-wrapper {
+    display: flex;
+    align-items: center;
+}
+#landing-page .auth-link {
+    display: flex;
+    flex-direction: row;
+}
+#landing-page .list-header li.list-item {
+    margin: 0 1px;
+}
+#landing-page .auth-link span {
+    font-weight: bold;
+}
+#landing-page #top-nav .toggle {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    justify-content: center;
+    padding: 5px;
+    width: 50px;
+}
+#landing-page #top-nav .lp-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 200px;
+    right: -10px;
+    padding: 20px 0;
+}
+#landing-page #top-nav .lp-menu {
+    display: none;
+}
+#landing-page #top-nav .toggle:hover {
+    background-color: var(--default-light);
+}
+#landing-page #top-nav .list-item {
+    box-sizing: border-box;
+    border-bottom: 3px solid transparent;
+    transition: none;
+    border-radius: 5px 5px 0 0;
+}
+#landing-page #top-nav .list-item:hover, #landing-page #top-nav .list-item:active{
+    border-bottom-color:  var(--primary-main);
+}
+#landing-page > .greeting {
+    display: flex;
+    padding: 0 40px;
+    flex-direction: column;
+    grid-area: gr;
+    align-self: center;
+    height: 100%;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: calc(100vh - 80px);
+}
+#landing-page > .greeting button {
+    margin-top: 20px;
+    width: fit-content;
+    margin-left: 0;
+}
+#landing-page > .greeting h1 {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+#landing-page > .wallpaper {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    grid-area: wp;
+    justify-content: center;
+    padding: 0 40px;
+    overflow: hidden;
+    height: calc(100vh - 80px);
+}
+#landing-page .svg-wallpaper {
+    width: 100%;
+    min-width: 300px;
+}
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    #landing-page {
+        grid-template-columns:repeat(6, 1fr);
+        grid-template-rows: 80px repeat(2, auto);
+        grid-template-areas:
+                            "hd hd hd hd hd hd"
+                            "wp wp wp wp wp wp"
+                            "gr gr gr gr gr gr";
+    }
+    #landing-page #top-nav .lp-menu {
+        display: flex;
+    }
+    #landing-page .auth-link {
+        flex-direction: column;
+        width: 100%;
+    }
+    #landing-page > .greeting {
+        display: flex;
+        height: calc((100vh - 80px) / 2);
+    }
+    #landing-page > .wallpaper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc((100vh - 80px) / 2);
+    }
+    #landing-page .svg-wallpaper {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 576px) {
+    #landing-page #top-nav .lp-menu {
+        display: flex;        
+    }
+    #landing-page .product-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    #landing-page > .greeting h1 {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 577px) {
+    #landing-page #top-nav .list-header {
+        background-color: transparent;
+        flex-direction: row;
+    }
+}
+
+/* Landscape orientation */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    #landing-page #top-nav .lp-menu {
+        display: flex;
+    }
+    #landing-page #top-nav .auth-link {
+        display: flex;
+        flex-direction: column;
+    }
+    #landing-page > .greeting h1 {
+        font-size: 1.5rem;
+    }
+    #landing-page > .greeting p {
+        font-size: 0.75rem;
+    }
+}
