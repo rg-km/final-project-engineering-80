@@ -2,7 +2,7 @@
 
 ### Preview
 
-[Buku Kita](https://GedeBOOK.netlify.app/)
+[GedeBOOK](https://GedeBOOK.netlify.app/)
 
 ### Usage
 
