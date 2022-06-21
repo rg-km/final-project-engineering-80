@@ -1,0 +1,68 @@
+#register-page {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--default-main);
+}
+#register-page .form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 568px;
+    max-width: 80%;
+    height: 480px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 0 20px;
+    box-shadow: var(--primary-shadow);
+}
+#register-page .form-group input {
+    background-color: rgb(241, 247, 255);
+    margin-top: 5px;
+    padding: 20px 0 0 0;
+}
+#register-page .form-group button {
+    margin-top: 20px;
+}
+#register-page .form-group .header {
+    position: relative;
+    height: 100px;
+    margin-bottom: 30px;
+}
+#register-page .form-group .header button {
+    padding: 5px;
+    left: -10px;
+    background-color: transparent;
+    box-shadow: none;
+    position: absolute;
+}
+#register-page .form-group .header button:hover {
+    background-color: var(--default-light);
+}
+#register-page .form-group > button {
+    width: fit-content;
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+#register-page .form-group .logo {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    top: 20px;
+}
+#register-page .form-group .header h1 {
+    position: absolute;
+    top: 80px;
+    margin: 0;
+    font-size: 1.5rem;
+}
+#register-page .form-group .input-wrapper {
+    height: 75px;
+}
+#register-page .index{
+    position: absolute;
+    right: 20px;
+    top: 30px;
+}

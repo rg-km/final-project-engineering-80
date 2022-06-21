@@ -1,0 +1,55 @@
+
+.list-group {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.list-group {
+    display: flex;
+}
+.list-group .item {
+    margin: 0 5px;
+    display: flex;
+    background-color: var(--default-light);
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    text-decoration: none;
+}
+.list-group  button.item:focus {
+    background-color: var(--bg-active-superlight);
+}
+.list-group  button.item svg {
+    fill: var(--text-secondary);
+}
+.list-group  button.item:focus svg {
+    fill: var(--info-dark);
+}
+.list-group  a.item {
+    color: var(--text-primary);
+}
+.list-group  .item:hover {
+    background-color: var(--default-main);
+    cursor: pointer;
+}
+.list-group  button.item:hover:focus {
+    background-color: var(--bg-active-mediumlight);
+    cursor: pointer;
+}
+.list-group  .effect.item:active, .list-group  .effect.item:active *{
+    transition: all 0.1s;
+    transform: scale(.95);
+    -webkit-transform: scale(.95);
+    -moz-transform: scale(.95);
+    -o-transform: scale(.95);
+}
+.list-group  .item.rectangle {
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.list-group  .item.circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}

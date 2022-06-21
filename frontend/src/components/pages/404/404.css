@@ -1,0 +1,14 @@
+._404 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+._404 img {
+    width: 500px;
+}
+._404 button {
+    margin-top: 40px;
+}
