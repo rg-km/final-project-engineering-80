@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"gedebook/auth"
+	"gedebook/book"
 	"gedebook/handler"
 	"gedebook/helper"
 	"gedebook/user"
@@ -22,8 +23,14 @@ func main() {
 	}
 
 	userRepository := user.NewRepository(db)
+	bookRepository := book.NewRepository(db)
+
 	userService := user.NewService(userRepository)
+	bookService := book.NewService(bookRepository)
 	authService := auth.NewService()
+
+	books, _ := bookService.FindBooks(17)
+	fmt.Println(len(books))
 	
 	userHandler := handler.NewUserHandler(userService, authService)
 
