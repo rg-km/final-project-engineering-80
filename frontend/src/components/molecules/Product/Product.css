@@ -1,0 +1,181 @@
+
+.card-product {
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.card-product .card-product span {
+    display: block;
+}
+.card-product a{
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    background-color: #eee;
+}
+.card-product .image-product {
+    border-radius: 5px 5px 0 0;
+    background-color: var(--default-main);
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-product .image-product svg {
+    fill: var(--default-dark);
+}
+.card-product h4 {
+    margin: 10px 5px;
+    align-self: flex-start;
+}
+/* Modal Box */
+.background-outside {
+    background-color: rgba(0, 0, 0, .3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    max-width:100%;
+    max-height: 100%;
+    z-index: 99999999;
+    box-sizing: border-box;
+    margin: 0;
+}
+.modal-box {
+    position: fixed;
+    background-color: var(--pure-white);
+    top: 50%;
+    left: 50%;
+    width: 550px;
+    min-width: 320px;
+    max-width: 100%;
+    height: 400px;
+    padding: 0 10px;
+    transform: translate(-50%, -50%);
+    z-index: 999999;
+    border-radius: 18px;
+    box-shadow: var(--primary-shadow) !important;
+}
+.modal-box .header {
+    position: relative;
+    border-radius: 18px 18px 0 0;
+    min-height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10px;
+    background-color: var(--pure-white);
+}
+.modal-box .header h4 {
+    color: var(--text-primary);
+}
+.modal-box .header .close-btn {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 30%;
+    width: 25px;
+    height: 25px;
+    right: 0;
+    top: 20%;
+    transition: transform .4s;
+}
+.modal-box .header .close-btn svg {
+    fill: var(--text-secondary);
+}
+.modal-box .header .close-btn:active {
+    transform: scale(.9);
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);    
+}
+.modal-box .header .close-btn:hover {
+    cursor: pointer;
+    background-color: var(--default-light);
+}
+.modal-box .box-wrapper {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 5fr;
+}
+.modal-box .image-product-detail {
+    flex: 1;
+    position: relative;
+    text-align: center;
+}
+.modal-box .icon-bookmark {
+    cursor: pointer;
+    position: absolute;
+    top: -5px;
+    right: 0;
+}
+.modal-box .icon-bookmark:hover svg, .modal-box .icon-bookmark:active svg {
+    fill: var(--text-primary);
+}
+.modal-box .icon-bookmark svg {
+    fill: var(--text-secondary);
+}
+.modal-box .image-product-detail .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 100px;
+    height: 120px;
+    background-color: var(--default-main);
+}
+.modal-box .image-product-detail a {
+    text-decoration: none;
+    font-size: .75rem;
+}
+.modal-box .detail-product {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-box .detail-product .group-star svg {
+    fill: var(--warning-main);
+}
+.modal-box .detail-product h1 {
+    color: var(--text-primary);
+}
+.modal-box hr {
+    margin-top: 5px;
+}
+.modal-box .detail-product .description{
+    margin-bottom: 10px;
+}
+.modal-box .detail-product td {
+    padding-right: 20px;
+    font-size: .75rem;
+    color: var(--text-secondary);
+}
+.modal-box button svg{
+    fill: var(--pure-white);
+}
+.modal-box .cart {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+@media screen and (max-width: 768px) {
+
+}
+@media screen and (max-width: 576px) {
+    .modal-box {
+        max-width: 90%;
+        height: 400px;
+        padding: 0 10px;
+    }
+    .modal-box .detail-product .description {
+        font-size: .8rem;
+    }
+    .modal-box .detail-product td {
+        font-size: .7rem;
+    }
+}
