@@ -25,22 +25,12 @@ func main() {
 	userRepository := user.NewRepository(db)
 	bookRepository := book.NewRepository(db)
 
-	books, err := bookRepository.FindAll()
-	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
-
-	fmt.Println("debug")
-	fmt.Println("debug")
-	fmt.Println("debug")
-	fmt.Println(len(books))
-	for _, book := range books {
-		fmt.Println(book.Name)
-		fmt.Println(book.FileImage)
-	}
 	userService := user.NewService(userRepository)
+	bookService := book.NewService(bookRepository)
 	authService := auth.NewService()
+
+	books, _ := bookService.FindBooks(17)
+	fmt.Println(len(books))
 	
 	userHandler := handler.NewUserHandler(userService, authService)
 

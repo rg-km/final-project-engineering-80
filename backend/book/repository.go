@@ -2,7 +2,6 @@ package book
 
 import (
 	"database/sql"
-	"fmt"
 )
 
 type Repository interface {
@@ -36,13 +35,13 @@ func (r *repository) FindAll() ([]Book, error) {
 
 	// rows.Scan digunakan untuk mengambil data dari tabel books dan dimasukkan ke dalam slice Book
 	for rows.Next() {
-		fmt.Println("test")
+		// fmt.Println("test")
 		var book Book
 		err := rows.Scan(&book.ID, &book.UserID, &book.Name, &book.FileImage, &book.ShortDescription, &book.Description, &book.Quantity, &book.Slug, &book.CreatedAt, &book.UpdatedAt)
 		if err != nil {
 			return books, err
 		}
-		fmt.Println(book)
+		// fmt.Println(book)
 		books = append(books, book)
 	}
 
@@ -58,16 +57,12 @@ func (r *repository) FindByUserID(userID int) ([]Book, error) {
     FROM 
         books
 		WHERE user_id = ?`
-	
-	// Query untuk mengambil data dari tabel students
-	rows, err := r.db.Query(sqlStmt)
+
+	rows, err := r.db.Query(sqlStmt, userID)
 	if err != nil {
 		return books, err
 	}
-
-	// slice students untuk menampung data dari tabel students
 	
-	// rows.Scan digunakan untuk mengambil data dari tabel students dan dimasukkan ke dalam slice students
 	for rows.Next() {
 		var book Book
 		err := rows.Scan(&book.ID, &book.UserID, &book.Name, &book.FileImage, &book.ShortDescription, &book.Description, &book.Quantity, &book.Slug, &book.CreatedAt, &book.UpdatedAt)
