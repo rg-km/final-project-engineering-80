@@ -9,7 +9,7 @@ const HomePage = () => {
         <div className="home-page">
             <div className="banner-main">
                 <h1>Grand Opening!!!</h1>
-                <p>Ikutii event dan dapatkan hadiah hingga 2000 Iphone 12 secara gratis</p>
+                <p>Tes</p>
                 <Button variant="default">Gabung Sekarang</Button>
             </div>
             <h4 className="title-thumb">Rekomendasi</h4>
