@@ -1,0 +1,14 @@
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.content {
+    display: flex;
+    position: absolute;
+    top: 50px;
+    box-shadow: var(--primary-shadow);
+    background-color: white;
+    border-radius: 8px;
+    box-sizing: border-box;
+} 

@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+:root {
+    --transparent: transtparent;
+    --pure-white: #ffffff;
+    --white: #f8f8f8;
+    --default-light:#f0f0f0;
+    --default-main:#cfcfcf;
+    --default-dark:#8a8a8a;
+    --bg-active-superlight:#e3f2fd;
+    --bg-active-mediumlight: #bbdefb;
+    --primary-light:#81d4fa;
+    --primary-main:#039be5;
+    --primary-dark:#0277bd;
+    --secondary-light:rgb(53, 65, 235);
+    --secondary-main:#30336B;
+    --secondary-dark:rgb(22, 25, 70);
+    --danger-light:#e57373;
+    --danger-main:#f44336;
+    --danger-dark:#d32f2f;
+    --warning-light:#ffb74d;
+    --warning-main:#ff9800;
+    --warning-dark:#f57c00;
+    --info-light:#64b5f6;
+    --info-main:#2196f3;
+    --info-dark:#0277bd;
+    --success-light:#81c784;
+    --success-main:#4caf50;
+    --success-dark:#388e3c;
+    --text-primary:rgba(0, 0, 0, 0.90);
+    --text-secondary:rgba(0, 0, 0, 0.6);
+    --text-disabled:rgba(0, 0, 0, 0.5);
+    --text-light: rgba(255, 255, 255, 0.98);
+    --divider:rgba(0, 0, 0, 0.12);
+    --light-shadow-s: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    --light-shadow: 0px 0px 7.5px rgba(0, 0, 0, 0.25);
+    --primary-shadow2: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    --primary-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    --secondary-shadow: 0px 0px 15px rgba(0, 0, 0, 0.65);
+}
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-primary);
+    font-weight: 500;
+    outline: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+a, img, li {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+hr {
+    border-top: 1px solid var(--divider);
+    margin: 1rem 0;
+}
+img {
+    pointer-events: none;
+}
+a {
+    color: var(--info-main);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--info-dark);
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}

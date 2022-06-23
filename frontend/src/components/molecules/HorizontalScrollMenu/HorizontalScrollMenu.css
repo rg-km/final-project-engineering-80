@@ -1,0 +1,12 @@
+.horizontal-scroll-menu {
+    margin: 20px 0 0 0;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    background-color: aqua;
+    height: 40px !important;
+    flex: unset;
+}
+.horizontal-scroll-menu .horizontal-item {
+    display: inline-block;
+    margin: 2.5px;
+}
