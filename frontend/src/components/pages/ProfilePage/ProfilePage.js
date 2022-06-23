@@ -24,8 +24,8 @@ const ProfilePage = (props) => {
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, quas?</span>
                     <div className="card-detail">
                         <span><IoMdPeople />BCC Filkom</span>
-                        <span><IoMdHome />Mojokerto</span>
-                        <span><IoIosLink />github.com/bagus2x/buku-kita</span>
+                        <span><IoMdHome />Jakarta</span>
+                        <span><IoIosLink />github.com/buku-kita</span>
                     </div>
                 </div>
             </div>
