@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ReactComponent as Wp } from '../../../assets/img/science_discovery.svg';
+// import { ReactComponent as Wp } from '../../../assets/img/science_discovery.svg';
 import bg from '../../../assets/img/bg.svg';
 import TopNav from '../../atoms/TopNav/TopNav';
-import Logo from '../../../assets/img/main_logo.svg';
+import Logo from '../../../assets/img/logoGB.png';
 import Button from '../../atoms/Button/Button';
 import { FiMenu } from 'react-icons/fi';
 import { IconContext } from 'react-icons';
@@ -36,8 +36,8 @@ const LandingPage = () => {
         <div id="landing-page">
             <TopNav variant="transparent">
                 <div className="left-wrapper">
-                    <img src={Logo} alt="GedeBOOK" width="40" />
-                    <span style={{ marginLeft: "10px", fontWeight: "bolder", fontSize: "18px" }}> <span style={{ fontSize: "18px" }}>Buku</span> Kita</span>
+                    <img src={Logo} alt="GedeBOOK" width="70" />
+                    <span style={{ marginLeft: "10px", fontWeight: "bolder", fontSize: "18px" }}> <span style={{ fontSize: "18px" }}>Gede</span> BOOK</span>
                 </div>
                 {width <= 576 ? null : productLink}
                 {width <= 768 ? null : authLink}
@@ -54,11 +54,11 @@ const LandingPage = () => {
             </TopNav>
             <div style={{ backgroundImage: `url(${bg})` }} className="greeting">
                 <h1>Perbanyak pengetahuanmu dengan membaca buku setiap hari</h1>
-                <p>BukuKita mendukung kamu untuk mencari buku dari pepustakaan dan pengguna lain</p>
+                <p>GedeBOOK mendukung kamu untuk mencari buku dari pepustakaan dan pengguna lain</p>
                 <Button variant="primary">Jelajah Sekarang</Button>
             </div>
             <div className="wallpaper">
-                <Wp className="svg-wallpaper" />
+                {/* <Wp className="svg-wallpaper" /> */}
             </div>
         </div>
     )

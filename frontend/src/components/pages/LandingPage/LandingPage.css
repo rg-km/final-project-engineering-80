@@ -93,7 +93,7 @@
     height: calc(100vh - 80px);
 }
 #landing-page .svg-wallpaper {
-    width: 100%;
+    width: 60%;
     min-width: 300px;
 }
 @media screen and (max-width: 768px) and (orientation: portrait) {

@@ -3,7 +3,7 @@ import { IconContext } from 'react-icons';
 import { MdArrowBack } from 'react-icons/md';
 import Steps from './Steps';
 import Button from '../../atoms/Button/Button';
-import Logo from '../../../assets/img/main_logo.svg';
+import Logo from '../../../assets/img/logoGB.png';
 import './RegisterPage.css';
 import { withRouter } from 'react-router';
 
@@ -49,11 +49,11 @@ const RegisterPage = (props) => {
                             <IconContext.Provider value={{ size: '30px' }}><MdArrowBack style={{ fill: 'var(--text-primary)' }} /></IconContext.Provider>
                         </Button>
                     ) : null}
-                    {page === 0 ? <h1>Buat akun di Buku Kita</h1> : ''}
+                    {page === 0 ? <h1>Buat akun di GedeBOOK</h1> : ''}
                 </div>
                 <Steps formStatus={formStatus} getFormValue={getFormValue} step={page} />
                 <Button onClick={page !== 2 ? handleNext : _onSubmit} variant="primary">{page !== 2 ? 'Selanjutnya' : 'Daftar'}</Button>
-                <img className="logo" src={Logo} alt="Buku Kita" width="35" />
+                <img className="logo" src={Logo} alt="GedeBOOK" width="70" />
                 <span className="index">{page + 1} / 3</span>
             </form>
         </div>

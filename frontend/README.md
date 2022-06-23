@@ -1,11 +1,8 @@
-# Buku Kita 
+# GedeBOOK
 
-### Preview 
+### Preview
 
-[Buku Kita](https://bukukita.netlify.app/)
-
-
-
+[GedeBOOK](https://GedeBOOK.netlify.app/)
 
 ### Usage
 
@@ -17,4 +14,3 @@ $ npm install
 $ npm start
 # Visit http://localhost:3000
 ```
-
