@@ -28,11 +28,9 @@ func main() {
 	userService := user.NewService(userRepository)
 	bookService := book.NewService(bookRepository)
 	authService := auth.NewService()
-
-	books, _ := bookService.FindBooks(17)
-	fmt.Println(len(books))
 	
 	userHandler := handler.NewUserHandler(userService, authService)
+	bookHandler := handler.NewBookHandler(bookService)
 
 	router := gin.Default()
 	api := router.Group("/api/v1")
@@ -41,6 +39,8 @@ func main() {
 	api.POST("/sessions", userHandler.Login)
 	api.POST("/email_checkers", userHandler.CheckEmailAvailability)
 	api.POST("/avatars", authMiddleware(authService, userService), userHandler.UploadAvatar)
+
+	api.GET("/books", bookHandler.GetBooks)
 
 	router.Run()
 
