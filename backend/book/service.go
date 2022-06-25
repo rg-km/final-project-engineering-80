@@ -12,6 +12,7 @@ type Service interface {
 	GetBookByID(input GetBookDetailInput) (Book, error)
 	CreateBook(input CreateBookInput) (Book, error)
 	UpdateBook(inputID GetBookDetailInput, inputData CreateBookInput) (Book, error)
+	SaveBookImage(ID int, fileLocation string) (Book, error)
 }
 
 type service struct {
@@ -86,6 +87,21 @@ func (s *service) UpdateBook(inputID GetBookDetailInput, inputData CreateBookInp
 	book.Quantity = inputData.Quantity
 
 	updatedBook, err := s.repository.Update(book)
+	if err != nil {
+		return updatedBook, err
+	}
+
+	return updatedBook, nil
+}
+func (s *service) SaveBookImage(ID int, fileLocation string) (Book, error) {
+	imageBook, err := s.repository.FindByID(ID)
+	if err != nil {
+		return imageBook, err
+	}
+
+	imageBook.FileImage = fileLocation
+
+	updatedBook, err := s.repository.Update(imageBook)
 	if err != nil {
 		return updatedBook, err
 	}

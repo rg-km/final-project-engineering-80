@@ -265,6 +265,32 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "upload book image",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo5fQ.YUIgSSDxm8nyzm1vlhgiOqXW1pcb8VtWkNPd_5U5Iw4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/v1/book-image",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"book-image"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

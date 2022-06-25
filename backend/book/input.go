@@ -14,3 +14,7 @@ type CreateBookInput struct {
 	Quantity         int    `json:"quantity" binding:"required"`
 	User             user.User
 }
+
+// type CreateBookImageInput struct {
+// 	BookID int `form:"book_id" binding:"required"`
+// }
