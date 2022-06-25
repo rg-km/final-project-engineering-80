@@ -9,6 +9,7 @@ type Repository interface {
 	FindByUserID(userID int) ([]Book, error)
 	FindByID(ID int) (Book, error)
 	Save(book Book) (Book, error)
+	Update(book Book) (Book, error)
 }
 
 type repository struct {
@@ -114,5 +115,17 @@ func (r *repository) Save(book Book) (Book, error) {
 
 	id, err := response.LastInsertId()
 	book.ID = int(id)
+	return book, nil
+}
+
+func (r *repository) Update(book Book) (Book, error) {
+	stmt := `
+		UPDATE books SET name = ?, file_image = ?, short_description = ?, description = ?, quantity = ? WHERE id = ?
+	`
+	_, err := r.db.Exec(stmt, book.Name, book.FileImage, book.ShortDescription, book.Description, book.Quantity, book.ID)
+	if err != nil {
+		return book, err
+	}
+
 	return book, nil
 }
