@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"fmt"
 	"gedebook/book"
 	"gedebook/helper"
 	"gedebook/user"
@@ -131,4 +132,43 @@ func (h *bookHandler) UpdateBook(c *gin.Context) {
 
 	response := helper.APIResponse("Success to update book", http.StatusOK, "success", book.FormatBook(updatedBook))
 	c.JSON(http.StatusOK, response)
+}
+
+func (h *bookHandler) UploadImage(c *gin.Context) {
+	file, err := c.FormFile("file")
+	if err != nil {
+		data := gin.H{"is_uploaded": false}
+		response := helper.APIResponse("Failede to upload book image", http.StatusBadRequest, "error", data)
+
+		c.JSON(http.StatusBadRequest, response)
+		return
+	}
+
+	currentUser := c.MustGet("currentUser").(user.User)
+	userID := currentUser.ID
+
+	path := fmt.Sprintf("images/%d-%s", userID, file.Filename)
+
+	err = c.SaveUploadedFile(file, path)
+	if err != nil {
+		data := gin.H{"is_uploaded": false}
+		response := helper.APIResponse("Failede to upload book image", http.StatusBadRequest, "error", data)
+
+		c.JSON(http.StatusBadRequest, response)
+		return
+	}
+
+	_, err = h.service.SaveBookImage(userID, path)
+	if err != nil {
+		data := gin.H{"is_uploaded": false}
+		response := helper.APIResponse("Failede to upload book image", http.StatusBadRequest, "error", data)
+
+		c.JSON(http.StatusBadRequest, response)
+		return
+	}
+
+	data := gin.H{"is_uploaded": true}
+		response := helper.APIResponse("Book image successfuly uploaded", http.StatusOK, "success", data)
+
+		c.JSON(http.StatusOK, response)
 }
