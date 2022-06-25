@@ -8,6 +8,7 @@ type Repository interface {
 	FindAll() ([]Book, error)
 	FindByUserID(userID int) ([]Book, error)
 	FindByID(ID int) (Book, error)
+	Save(book Book) (Book, error)
 }
 
 type repository struct {
@@ -79,35 +80,6 @@ func (r *repository) FindByUserID(userID int) ([]Book, error) {
 func (r *repository) FindByID(ID int) (Book, error) {
 	var b Book
 
-	// sqlStmt := `
-	// SELECT
-	// 	b.id,
-	// 	b.user_id,
-	// 	b.name,
-	// 	b.file_image,
-	// 	b.short_description,
-	// 	b.description,
-	// 	b.quantity,
-	// 	b.slug,
-	// 	b.created_at,
-	// 	b.updated_at,
-	// 	u.name AS user_name
-	// FROM books AS b
-	// INNER JOINS users AS u ON b.user_id = u.id
-	// ORDER BY b.id
-	// `
-
-	// row := r.db.QueryRow(sqlStmt, ID)
-
-	// err := row.Scan(
-	// 	&b.ID, &b.UserID, &b.Name, &b.FileImage, &b.ShortDescription, &b.Description, &b.Quantity, &b.Slug, &b.CreatedAt, &b.UpdatedAt, &b.User.Name)
-
-	// 	if err != nil {
-	// 		return b, err
-	// 	}
-
-	// 	return b, nil
-
 	sqlStmt := `
 	SELECT 
 	    b.id, b.user_id, b.name, b.file_image, b.short_description, b.description, b.quantity, b.slug, b.created_at, b.updated_at, u.id AS user_id, u.name AS user_name, u.occupation AS user_occupation, u.email AS user_email, u.phone_number AS user_phone_number, u.password_hash AS user_password_hash, u.profile_pic AS user_profile_pic, u.role AS user_role, u.token AS user_token, u.created_at AS user_created_at, u.updated_at AS user_updated_at
@@ -122,6 +94,25 @@ func (r *repository) FindByID(ID int) (Book, error) {
 			return b, err
 		}
 
-		return b, nil
-		
+		return b, nil		
+}
+
+func (r *repository) Save(book Book) (Book, error) {
+	var sqlStatement string
+	// Task 1: lengkapi statement SQL untuk mengambil data user berdasarkan id
+	sqlStatement = `
+		INSERT INTO books (user_id, name, file_image, short_description, description, quantity, slug, created_at, updated_at)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+	`
+
+	// Task 2: buatlah query dengan prepared statement dengan statement SQL yang sudah di lengkapi	diatas
+	// row := r.db.QueryRow(sqlStatement, user)
+	response, err := r.db.Exec(sqlStatement, book.UserID, book.Name, book.FileImage, book.ShortDescription, book.Description, book.Quantity, book.Slug, book.CreatedAt, book.UpdatedAt)
+	if err != nil {
+		return book, err
+	}
+
+	id, err := response.LastInsertId()
+	book.ID = int(id)
+	return book, nil
 }
