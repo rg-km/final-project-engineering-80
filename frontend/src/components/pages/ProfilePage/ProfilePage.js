@@ -23,15 +23,9 @@ const ProfilePage = (props) => {
                     {width > 768 ? <Button variant="default">Edit profile</Button> : ''}
                     <span>Tidak tercantum bio apapun</span>
                     <div className="card-detail">
-<<<<<<< HEAD
-                        <span><IoMdPeople />BCC Filkom</span>
-                        <span><IoMdHome />Jakarta</span>
-                        <span><IoIosLink />github.com/buku-kita</span>
-=======
                         <span><IoMdPeople />ilhamrasyid489</span>
                         <span><IoMdHome />Bekasi</span>
                         <span><IoIosLink />ilham489.blogspot.com</span>
->>>>>>> 9436a18f8858eb48e4f6bcdeffc3d26363f7eee4
                     </div>
                 </div>
             </div>

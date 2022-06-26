@@ -5,21 +5,42 @@ import { Link, withRouter } from 'react-router-dom';
 import Logo from '../../../assets/img/logoGB.png';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './LoginPage.css';
+import axios from 'axios';
 
 const LoginPage = (props) => {
     const [showPassword, setShowPassword] = useState(false);
     const [userName, setUserName] = useState('')
+    const [userPassword, setUserPassword] = useState('')
     const toggleInputType = () => setShowPassword(!showPassword);
     // Hanya demo saja
-    const handleInputChange = (e) => setUserName(e.target.value);
+    const handleInputChange = (e, isPassword = false) => {
+        if (isPassword) {
+            setUserPassword(e.target.value)
+        } else
+            setUserName(e.target.value)
+    }
 
     const handleLogin = (e) => {
         e.preventDefault();
         if (userName) {
-            localStorage.setItem('username', userName);
-            props.history.push('/home');
+            axios.post('https://9097-103-83-93-131.ap.ngrok.io/api/v1/users', {
+                email: userName,
+                password: userPassword
+            }, {
+                headers: { 'Access-Control-Allow-Origin': '*' }
+            })
+                .then(function (response) {
+                    console.log("Response", response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+            // localStorage.setItem('username', userName);
+            // props.history.push('/home');
         }
     }
+
 
     return (
         <div id="login-page">
@@ -27,10 +48,10 @@ const LoginPage = (props) => {
             <h1>Login to GedeBOOK</h1>
             <form className="form-group">
                 <Label id="username" title="Nama pengguna" >
-                    <Input onChange={handleInputChange} variant="line" />
+                    <Input onChange={(e) => handleInputChange(e, false)} variant="line" />
                 </Label>
                 <Label id="password" title="Password" >
-                    <Input type={showPassword ? 'text' : 'password'} variant="line" />
+                    <Input onChange={(e) => handleInputChange(e, true)} type={showPassword ? 'text' : 'password'} variant="line" />
                 </Label>
                 {showPassword ? <FaEye onClick={toggleInputType} className="eye-button" /> :
                     <FaEyeSlash onClick={toggleInputType} className="eye-button" />}
