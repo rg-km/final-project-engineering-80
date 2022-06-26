@@ -11,6 +11,7 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v4"
 	_ "github.com/mattn/go-sqlite3"
@@ -33,6 +34,7 @@ func main() {
 	bookHandler := handler.NewBookHandler(bookService)
 
 	router := gin.Default()
+	router.Use(cors.Default())
 	router.Static("/images", "./images")
 	api := router.Group("/api/v1")
 
